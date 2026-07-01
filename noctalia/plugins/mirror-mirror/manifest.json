@@ -1,0 +1,27 @@
+{
+  "id": "mirror-mirror",
+  "name": "Mirror Mirror",
+  "version": "0.1.2",
+  "minNoctaliaVersion": "3.6.0",
+  "author": "Mathew-D",
+  "license": "MIT",
+  "repository": "https://github.com/noctalia-dev/noctalia-plugins",
+  "description": "Mirror one monitor to another using wl-mirror.",
+  "tags": [
+    "Bar",
+    "Panel",
+    "Utility",
+    "System"
+  ],
+  "entryPoints": {
+    "main": "Main.qml",
+    "barWidget": "BarWidget.qml",
+    "panel": "Panel.qml"
+  },
+  "dependencies": {
+    "plugins": []
+  },
+  "metadata": {
+    "defaultSettings": {}
+  }
+}

@@ -1,0 +1,107 @@
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+
+// keybinds
+include "keybinds.kdl"
+
+// input
+include "inputs.kdl"
+
+// monitor
+include "monitor.kdl"
+
+// layouts
+include "layout.kdl"
+
+// startup
+include "startup.kdl"
+
+// window-rule
+include "windowrule.kdl"
+
+// animations
+include "animation.kdl"
+
+
+// You can override environment variables for processes spawned by niri.
+environment {
+    // Set a variable like this:
+    // QT_QPA_PLATFORM "wayland"
+    _JAVA_AWT_WM_NONREPARENTING "1"
+    // Force VA-API video decoding qua AMD (radeonsi)
+    LIBVA_DRIVER_NAME "radeonsi"
+    VDPAU_DRIVER "radeonsi"
+
+    // Wayland env
+    GDK_BACKEND "wayland"
+    QT_QPA_PLATFORM "wayland"
+    SDL_VIDEODRIVER "wayland"
+    MOZ_ENABLE_WAYLAND "1"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_QPA_PLATFORMTHEME "qt5ct"
+}
+
+cursor {
+    // Change the theme and size of the cursor as well as set the
+    // `XCURSOR_THEME` and `XCURSOR_SIZE` env variables.
+    xcursor-theme "Silver Wolf"
+    xcursor-size 12
+}
+
+// Uncomment this line to ask the clients to omit their client-side decorations if possible.
+// If the client will specifically ask for CSD, the request will be honored.
+// Additionally, clients will be informed that they are tiled, removing some rounded corners.
+prefer-no-csd
+
+// You can change the path where screenshots are saved.
+// A ~ at the front will be expanded to the home directory.
+// The path is formatted with strftime(3) to give you the screenshot date and time.
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// You can also set this to null to disable saving screenshots to disk.
+// screenshot-path null
+
+// Settings for the "Important Hotkeys" overlay.
+hotkey-overlay {
+    // Uncomment this line if you don't want to see the hotkey help at niri startup.
+    skip-at-startup
+}
+
+
+
+
+// Settings for debugging. Not meant for normal use.
+// These can change or stop working at any point with little notice.
+debug {
+    // Make niri take over its DBus services even if it's not running as a session.
+    // Useful for testing screen recording changes without having to relogin.
+    // The main niri instance will *not* currently take back the services; so you will
+    // need to relogin in the end.
+    // dbus-interfaces-in-non-session-instances
+
+    // Wait until every frame is done rendering before handing it over to DRM.
+    // wait-for-frame-completion-before-queueing
+
+    // Enable direct scanout into overlay planes.
+    // May cause frame drops during some animations on some hardware.
+    // enable-overlay-planes
+
+    // Disable the use of the cursor plane.
+    // The cursor will be rendered together with the rest of the frame.
+    // disable-cursor-plane
+
+    // Override the DRM device that niri will use for all rendering.
+    // render-drm-device "/dev/dri/renderD129"
+
+    // Enable the color-transformations capability of the Smithay renderer.
+    // May cause a slight decrease in rendering performance.
+    // enable-color-transformations-capability
+
+    // Emulate zero (unknown) presentation time returned from DRM.
+    // This is a thing on NVIDIA proprietary drivers, so this flag can be
+    // used to test that we don't break too hard on those systems.
+    // emulate-zero-presentation-time
+    honor-xdg-activation-with-invalid-serial
+}
+include "./noctalia.kdl"
+

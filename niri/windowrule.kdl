@@ -1,0 +1,149 @@
+// Window rules let you adjust behavior for individual windows.
+// They are processed in order of appearance in this file.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    // Match directives control which windows this rule will apply to.
+    // You can match by app-id and by title.
+    // The window must match all properties of the match directive.
+    match app-id="org.myapp.MyApp" title="My Cool App"
+
+    // There can be multiple match directives. A window must match any one
+    // of the rule's match directives.
+    //
+    // If there are no match directives, any window will match the rule.
+    match title="Second App"
+
+    // You can also add exclude directives which have the same properties.
+    // If a window matches any exclude directive, it won't match this rule.
+    //
+    // Both app-id and title are regular expressions.
+    // Raw KDL strings are helpful here.
+    exclude app-id=r#"\.unwanted\."#
+
+    // Here are the properties that you can set on a window rule.
+    // You can override the default column width.
+    default-column-width { proportion 0.75; }
+
+    // You can set the output that this window will initially open on.
+    // If such an output does not exist, it will open on the currently
+    // focused output as usual.
+    open-on-output "eDP-1"
+
+    // Make this window open as a maximized column.
+    open-maximized true
+
+    // Make this window open fullscreen.
+    open-fullscreen true
+    // You can also set this to false to prevent a window from opening fullscreen.
+    // open-fullscreen false
+}
+
+// Here's a useful example. Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    // The regular expression can match anywhere in the string.
+    // match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+    geometry-corner-radius 6
+    opacity 0.95
+    draw-border-with-background false
+    clip-to-geometry true
+            background-effect {
+            xray false
+            blur false
+        }
+
+}
+layer-rule {
+    match layer="top"
+    match layer="overlay"
+
+    background-effect {
+        xray false
+    }
+}
+
+// Open the Firefox Picture-in-Picture window at the bottom-left corner of the screen
+// with a small gap.
+window-rule {
+    match app-id="zen$" title="^Picture-in-Picture$"
+
+    open-floating true
+    default-floating-position x=32 y=32 relative-to="bottom-left"
+}
+
+
+
+window-rule {
+    match app-id="zen$"
+
+    draw-border-with-background false
+    clip-to-geometry true
+}
+
+// Godot
+window-rule {
+    match app-id="Godot" title="Create New Node"
+    open-floating true
+    default-window-height { fixed 750; }
+}
+
+// Minecraft
+window-rule {
+    match title=".*Minecraft.*"
+
+    open-fullscreen true
+}
+
+// desk-display
+window-rule {
+    match app-id="desk-display" title="Desk Display"
+
+    min-width 320
+    max-width 320
+    min-height 240
+    max-height 240
+    default-window-height { fixed 240; }
+    default-column-width { fixed 320; }
+
+    default-floating-position x=32 y=32 relative-to="bottom-right"
+}
+
+layer-rule {
+      background-effect {
+        blur true
+    }
+    match namespace="^launcher$"
+
+    shadow {
+        on
+    }
+
+    // Fuzzel defaults to 10 px rounded corners.
+    geometry-corner-radius 10
+}
+
+window-rule {
+    match app-id="float-terminal"
+    open-floating true
+    open-maximized false
+    default-column-width { proportion 0.75; }
+    default-window-height { fixed 700; }
+    background-effect {
+        xray false
+    }
+
+    // max-width 1600
+}
+window-rule {
+  // Rounded corners for a modern look.
+  geometry-corner-radius 15
+
+  // Clips window contents to the rounded corner boundaries.
+  clip-to-geometry true
+}
+
+

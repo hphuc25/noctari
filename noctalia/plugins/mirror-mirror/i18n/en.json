@@ -1,0 +1,36 @@
+{
+  "bar": {
+    "tooltip": {
+      "active": "Mirror is active",
+      "inactive": "Mirror displays"
+    }
+  },
+  "main": {
+    "error": {
+      "alreadyMirroring": "A mirror session is already active. Stop it before starting another.",
+      "selectBothMonitors": "Please select both source and destination monitors.",
+      "sameMonitor": "Source and destination must be different monitors.",
+      "unexpectedExit": "wl-mirror exited unexpectedly."
+    }
+  },
+  "panel": {
+    "title": "Mirror Mirror",
+    "subtitle": "Mirror one monitor to another using wl-mirror.",
+    "source": {
+      "label": "Source monitor",
+      "description": "Monitor to mirror from"
+    },
+    "destination": {
+      "label": "Destination monitor",
+      "description": "Monitor to mirror to (scaled fullscreen)"
+    },
+    "validation": {
+      "sameSelection": "Source and destination must be different monitors.",
+      "needTwoMonitors": "Need at least 2 monitors detected to mirror."
+    },
+    "actions": {
+      "start": "Start mirror",
+      "stop": "Stop mirror"
+    }
+  }
+}
