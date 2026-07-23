@@ -205,7 +205,7 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Mod+Shift+S { screenshot; }
+    Mod+Shift+S { spawn-sh "noctalia msg screenshot-region"; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 

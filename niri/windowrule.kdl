@@ -48,7 +48,7 @@ window-rule {
     // match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
     geometry-corner-radius 6
-    opacity 0.95
+    opacity 0.97
     draw-border-with-background false
     clip-to-geometry true
             background-effect {

@@ -44,8 +44,6 @@ environment {
 cursor {
     // Change the theme and size of the cursor as well as set the
     // `XCURSOR_THEME` and `XCURSOR_SIZE` env variables.
-    xcursor-theme "Silver Wolf"
-    xcursor-size 12
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -102,6 +100,7 @@ debug {
     // used to test that we don't break too hard on those systems.
     // emulate-zero-presentation-time
     honor-xdg-activation-with-invalid-serial
+	    wait-for-frame-completion-before-queueing
 }
 include "./noctalia.kdl"
 

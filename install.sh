@@ -25,6 +25,8 @@ AUR_PACKAGES=(
   ttf-dejavu
   woff2-font-awesome
   xorg-fonts-encodings
+  nwg-displays
+  polkit-gnome
 )
 
 REPO_PACKAGES=(

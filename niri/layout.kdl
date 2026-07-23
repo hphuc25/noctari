@@ -147,12 +147,12 @@ layout {
 }
 
 layer-rule {
-    match namespace=""
+    match namespace="noctalia-backdrop"
     place-within-backdrop true
 }
 
 overview {
     workspace-shadow {
-        off 
+        on 
     }
 }
